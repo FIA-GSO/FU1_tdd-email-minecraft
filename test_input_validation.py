@@ -23,8 +23,11 @@ def test_is_valid_email__gueltige_Adressen(email):
 
 @pytest.mark.parametrize("email", [
     ("testemail.com")   # Fehlendes @-Zeichen
-,   ("test@email")      # Fehlende Top-Level-Domain
+,   ("test@email.")      # Fehlende Top-Level-Domain
 ,   ("test@em@ail.com") # Mehrfaches @-Zeichen
+,   ("++test@em@ail.com") # Mehrfaches +-Zeichen
+,   ("ätöüest@gmail.com") # ÄÜÖ 
+,   ("iopjroiiowcioweoiwednoqoiodoiqwdoiwendoweniwniowendiweoidijsdjascoiwcnweoilajsdjknoicniowesadniowenwe@gmail.com")
 ])
 def test_is_valid_email__ungueltige_Adressen(email):
     # arrange
